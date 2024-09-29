@@ -1,7 +1,7 @@
-let firstName
+let firstName = "";
 
-while (!firstName) {
-    firstName = prompt("Qual è il tuo nome? (Il nome non può essere vuoto)");
+while (firstName === null || firstName === "" || !isNaN(firstName)) {
+    firstName = prompt("Qual è il tuo nome? (Il nome non può essere vuoto né un numero)");
 }
 
 console.log("Benvenuto " + firstName);
