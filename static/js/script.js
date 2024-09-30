@@ -1,16 +1,30 @@
+
+function sanitizeInput(input) {
+    input = input.toLowerCase()
+    input = input.trim()
+
+    return input
+}
+
+function calcoloPercentuale(contatore, totale = 7) {
+    let percentuale = (contatore / totale) *100
+
+    return percentuale
+}
+
 let firstName = "";
 
-while (firstName === null || firstName === "" || !isNaN(firstName)) {
+while (firstName === null || firstName.trim() === "" || !isNaN(firstName)) {
     firstName = prompt("Qual è il tuo nome? (Il nome non può essere vuoto né un numero)");
 }
 
-console.log("Benvenuto " + firstName);
+firstName = sanitizeInput(firstName)
+console.log("Benvenuto " + firstName)
 
 
 let contatore = 0
 let ans1 = prompt("In quale città gioca la squadra di calcio Lazio?")
-ans1 = ans1.toLowerCase()
-ans1 = ans1.trim()
+ans1 = sanitizeInput(ans1)
 if(ans1 === "roma"){
     contatore += 1
     console.log("Complimenti, hai indovinato la risposta! ")
@@ -19,8 +33,7 @@ if(ans1 === "roma"){
 } 
 
 let ans2 = prompt("Quale è la capitale della Francia?")
-ans2 = ans2.toLowerCase()
-ans2 = ans2.trim()
+ans2 = sanitizeInput(ans2)
 if(ans2 === "parigi"){
     contatore += 1
     console.log("Complimenti, hai indovinato la risposta! ")
@@ -29,8 +42,7 @@ if(ans2 === "parigi"){
 } 
 
 let ans3 = prompt("Quale è il nome del santo patrono di Bari? (solo il nome)")
-ans3 = ans3.toLowerCase()
-ans3 = ans3.trim()
+ans3 = sanitizeInput(ans3)
 if(ans3 === "nicola"){
     contatore += 1
     console.log("Complimenti, hai indovinato la risposta! ")
@@ -39,8 +51,7 @@ if(ans3 === "nicola"){
 } 
 
 let ans4 = prompt("Quale è il cognome di un famoso attaccante degli anni '90 di nome Igor?")
-ans4 = ans4.toLowerCase()
-ans4 = ans4.trim()
+ans4 = sanitizeInput(ans4)
 if(ans4 === "protti"){
     contatore += 1
     console.log("Complimenti, hai indovinato la risposta! ")
@@ -49,8 +60,7 @@ if(ans4 === "protti"){
 } 
 
 let ans5 = prompt("Quale è la capitale del Giappone?")
-ans5 = ans5.toLowerCase()
-ans5 = ans5.trim()
+ans5 = sanitizeInput(ans5)
 if(ans5 === "tokyo"){
     contatore += 1
     console.log("Complimenti, hai indovinato la risposta! ")
@@ -59,8 +69,7 @@ if(ans5 === "tokyo"){
 }
 
 let ans6 = prompt("Quale è la capitale della Spagna?")
-ans6 = ans6.toLowerCase()
-ans6 = ans6.trim()
+ans6 = sanitizeInput(ans6)
 if(ans6 === "madrid"){
     contatore += 1
     console.log("Complimenti, hai indovinato la risposta! ")
@@ -69,8 +78,7 @@ if(ans6 === "madrid"){
 }
 
 let ans7 = prompt("Quale è il cognome del famoso rapper italiano con nome d'arte Gue?")
-ans7 = ans7.toLowerCase()
-ans7 = ans7.trim()
+ans7 = sanitizeInput(ans7)
 if(ans7 === "fini"){
     contatore += 1
     console.log("Complimenti, hai indovinato la risposta! ")
@@ -78,5 +86,5 @@ if(ans7 === "fini"){
     console.log("Mi dispiace, ma la risposta corretta era 'fini' ")
 }
 
-let percentuale = (contatore / 7) * 100
+let percentuale = calcoloPercentuale(contatore)
 console.log(`Complimenti, hai indovinato ${contatore} domande su 7, con una percentuale del ${percentuale}%`)
